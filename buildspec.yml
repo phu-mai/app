@@ -7,12 +7,10 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region ap-southeast-1)
+      - export IMAGE_REPO_NAME="test/infinite-lambda"
+      - export IMAGE_TAG=$CODEBUILD_BUILD_NUMBER
   build:
     commands:
-      - echo Build started on `date`
-      - echo Building Docker test image...
-      - docker build -t $IMAGE_REPO_NAME:$TEST_IMAGE_TAG -f Dockerfile .
-      - docker run -e CI=true $IMAGE_REPO_NAME:$TEST_IMAGE_TAG npm run test
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
