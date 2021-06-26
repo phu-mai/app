@@ -3,7 +3,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email)
+      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
       - export IMAGE_REPO_NAME="app"
       - export IMAGE_TAG=$CODEBUILD_BUILD_NUMBER
   build:
