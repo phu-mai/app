@@ -22,8 +22,3 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
-
-
-
-
-      docker tag test/infinite-lambda:latest 546526969054.dkr.ecr.ap-southeast-1.amazonaws.com/test/infinite-lambda:latest
